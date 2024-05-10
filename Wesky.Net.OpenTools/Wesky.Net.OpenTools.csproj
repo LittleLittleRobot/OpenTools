@@ -8,8 +8,9 @@
    <Title>OpenTools</Title>
    <Version>1.0.0</Version>
    <Company>Dotnet Dancer</Company>
-   <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+   <PackageLicenseFile>LICENSE</PackageLicenseFile>
    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+   <RepositoryUrl>https://gitee.com/dreamer_j/open-tools.git</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
@@ -29,6 +30,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>/</PackagePath>
+    </None>
     <None Include="bin\Release\netstandard2.1\LICENSE.txt">
       <Pack>True</Pack>
       <PackagePath>/</PackagePath>
