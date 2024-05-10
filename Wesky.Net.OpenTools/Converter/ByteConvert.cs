@@ -8,7 +8,7 @@ namespace Wesky.Net.OpenTools.Converter
     /// Byte数据处理
     /// Byte Data Processing
     /// </summary>
-    internal class ByteConvert
+    public class ByteConvert
     {
         /// <summary>
         /// 16进制字符串转byte[]数组

@@ -7,7 +7,7 @@ using Wesky.Net.OpenTools.Converter;
 
 namespace Wesky.Net.OpenTools.Security
 {
-    internal class AesCipher
+    public class AesCipher
     {
         /// <summary>
         /// 使用AES加密算法加密文本。
