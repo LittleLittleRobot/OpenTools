@@ -6,7 +6,7 @@
    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
    <Authors>Wesky</Authors>
    <Title>OpenTools</Title>
-   <Version>1.0.1</Version>
+   <Version>1.0.2</Version>
    <Company>Dotnet Dancer</Company>
    <PackageLicenseFile>LICENSE</PackageLicenseFile>
    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
@@ -15,7 +15,12 @@
    <Copyright>Copyright (c) 2024 Wesky[Dotnet Dancer]</Copyright>
    <PackageProjectUrl>https://gitee.com/dreamer_j/open-tools.git</PackageProjectUrl>
   </PropertyGroup>
-
+  <PropertyGroup>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
     <DebugType>embedded</DebugType>
   </PropertyGroup>
@@ -48,6 +53,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Pack>True</Pack>
       <PackagePath>/</PackagePath>
+    </None>
+    
+    <None Update="README.md">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Wesky.Net.OpenTools" Version="1.0.0" />
+    <PackageReference Include="Wesky.Net.OpenTools" Version="1.0.2" />
   </ItemGroup>
 
 </Project>
