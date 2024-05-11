@@ -12,11 +12,13 @@
    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
    <RepositoryUrl>https://gitee.com/dreamer_j/open-tools.git</RepositoryUrl>
    <SignAssembly>False</SignAssembly>
-   <Copyright>Copyright (c) 2024 Wesky[Dotnet Dancer]</Copyright>
+   <Copyright>Copyright © 2024 Wesky[Dotnet Dancer]</Copyright>
    <PackageProjectUrl>https://gitee.com/dreamer_j/open-tools.git</PackageProjectUrl>
   </PropertyGroup>
   <PropertyGroup>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Description>一个用于提高开发效率的开源工具库。 
+An open-source toolkit designed to enhance development efficiency</Description>
   </PropertyGroup>
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />
