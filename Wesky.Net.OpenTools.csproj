@@ -6,9 +6,9 @@
    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
    <Authors>Wesky</Authors>
    <Title>OpenTools</Title>
-   <Version>1.0.2</Version>
+   <Version>1.0.3</Version>
    <Company>Dotnet Dancer</Company>
-   <PackageLicenseFile>LICENSE</PackageLicenseFile>
+   <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
    <RepositoryUrl>https://gitee.com/dreamer_j/open-tools.git</RepositoryUrl>
    <SignAssembly>False</SignAssembly>
@@ -50,7 +50,7 @@ An open-source toolkit designed to enhance development efficiency</Description>
     <None Update="LICENSE.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Pack>True</Pack>
-      <PackagePath>/</PackagePath>
+      <PackagePath>\</PackagePath>
     </None>
     
     <None Update="README.md">
