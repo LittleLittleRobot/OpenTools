@@ -5,8 +5,8 @@
    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
    <Authors>Wesky</Authors>
-   <Title>OpenTools</Title>
-   <Version>1.0.5</Version>
+   <Title>$(AssemblyName)</Title>
+   <Version>1.0.6</Version>
    <Company>Dotnet Dancer</Company>
    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
@@ -19,6 +19,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Description>一个用于提高开发效率的开源工具库。 
 An open-source toolkit designed to enhance development efficiency</Description>
+    <PackageId></PackageId>
   </PropertyGroup>
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />
