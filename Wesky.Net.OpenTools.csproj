@@ -59,4 +59,8 @@ An open-source toolkit designed to enhance development efficiency</Description>
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Iot\Modbus\" />
+  </ItemGroup>
+
 </Project>
