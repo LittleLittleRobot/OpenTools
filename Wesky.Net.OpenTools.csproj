@@ -6,7 +6,7 @@
    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
    <Authors>Wesky</Authors>
    <Title>$(AssemblyName)</Title>
-   <Version>1.0.7</Version>
+   <Version>1.0.8</Version>
    <Company>Dotnet Dancer</Company>
    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
@@ -21,6 +21,11 @@
 An open-source toolkit designed to enhance development efficiency</Description>
     <PackageId></PackageId>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Iot\Modbus\**" />
+    <EmbeddedResource Remove="Iot\Modbus\**" />
+    <None Remove="Iot\Modbus\**" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
@@ -57,10 +62,6 @@ An open-source toolkit designed to enhance development efficiency</Description>
     <None Update="README.md">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Iot\Modbus\" />
   </ItemGroup>
 
 </Project>
