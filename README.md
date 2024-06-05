@@ -20,6 +20,7 @@ QQ: 16837949
 1.0.6	提供NTP客户端操作，获取网络时间或者远程NTP服务器IP时间进行同步  
 1.0.7	提供Iot方向，通用扫码器以太网通信读码功能   
 1.0.8	提供通用Modbus-TCP通信功能，支持读写多种数据类型，支持多种数据格式  
+1.0.9	提供解析实体对象为Json字符串，支持多层级和集合  
 
 This project is an individual open-source project under the MIT license, which will never change. The open-source project can be found at:    
 Gitee:https://gitee.com/dreamer_j/open-tools.git  
@@ -38,7 +39,8 @@ Update description:
 1.0.5 Provides registry operations using P/Invoke, including creating, deleting, modifying, and querying.    
 1.0.6 Provides NTP client operations, obtaining network time or synchronizing with a remote NTP server IP.    
 1.0.7 Provides IoT direction, general barcode scanner Ethernet communication reading code functionality.      
-1.0.8 Provides general Modbus-TCP communication functionality, supporting reading and writing multiple data types and multiple data formats.
+1.0.8 Provides general Modbus-TCP communication functionality, supporting reading and writing multiple data types and multiple data formats.  
+1.0.9 Provides parsing entity objects into Json strings, supporting multiple levels and collections.  
 
 
 
