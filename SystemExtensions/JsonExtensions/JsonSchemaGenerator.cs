@@ -10,7 +10,7 @@ namespace Wesky.Net.OpenTools.SystemExtensions.JsonExtensions
     /// 实体类JSON模式生成器
     /// Entity class JSON schema generator
     /// </summary>
-    public static class JsonSchemaGenerator
+    public static class OpenJsonSchemaGenerator
     {
         // 根据类型生成JSON模式的字符串
         // Generate JSON schema string based on the type
