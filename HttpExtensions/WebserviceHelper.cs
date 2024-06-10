@@ -15,7 +15,31 @@ namespace Wesky.Net.OpenTools.HttpExtensions
 {
     public class WebserviceHelper
     {
-        public List<string> GetParameterNamesFromWsdl(string wsdlUrl, string operationName)
+
+        public string GetNamespaceFromWsdl(string wsdlUrl, string operationName)
+        {
+            XmlDocument wsdlDoc = new XmlDocument();
+            wsdlDoc.Load(wsdlUrl);
+
+            XmlNamespaceManager nsmgr = new XmlNamespaceManager(wsdlDoc.NameTable);
+            nsmgr.AddNamespace("wsdl", "http://schemas.xmlsoap.org/wsdl/");
+            nsmgr.AddNamespace("soap", "http://schemas.xmlsoap.org/wsdl/soap/");
+
+            // 查找对应操作的绑定，获取命名空间
+            string xpath = $"//wsdl:binding/wsdl:operation[@name='{operationName}']/soap:operation";
+            XmlNode operationNode = wsdlDoc.SelectSingleNode(xpath, nsmgr);
+            if (operationNode != null && operationNode.Attributes["soapAction"] != null)
+            {
+                string soapAction = operationNode.Attributes["soapAction"].Value;
+                return soapAction.Substring(0, soapAction.LastIndexOf('/') + 1);
+            }
+
+            // 如果找不到具体的命名空间，返回默认命名空间
+            return "http://tempuri.org/";
+        }
+
+
+        private List<string> GetParameterNamesFromWsdl(string wsdlUrl, string operationName)
         {
             var parameterNames = new List<string>();
 
@@ -116,7 +140,7 @@ namespace Wesky.Net.OpenTools.HttpExtensions
             }
         }
 
-        public OpenToolResult<string> CallWebservice(string url, string apiName, string actionNamespace = "http://tempuri.org/",params object[] parameters)
+        public OpenToolResult<string> CallWebservice(string url, string apiName, string actionNamespace = "http://tempuri.org/",long expireSecond = 3600,params object[] parameters)
         {
             OpenToolResult<string> result = new HttpExtensions.OpenToolResult<string>();
             var par = GetParameterNamesFromWsdl(url, apiName);
@@ -150,23 +174,30 @@ namespace Wesky.Net.OpenTools.HttpExtensions
                 dicParams.Add(par[i], XmlConvertor.SerializeObjectToXml(parameters[i]));
             }
             var response = InvokeService(url, apiName, dicParams);
-            string xmlPayload = ExtractXmlFromSoapResponse(response);
 
-            //// 替换根节点名称从ResponseResult到Employee
-            //xmlPayload = ReplaceXmlRootNodeName(xmlPayload, typeof(T).Name);
-
-            //var responseData = DeserializeXmlToObject<object>(xmlPayload);
-            //  dynamic res = DeserializeXmlToDynamic(xmlPayload);
-
-
-            result.Result = xmlPayload;//DeserializeXmlToObject<dynamic>(response);
+            result.Result = response;
             result.IsSuccess = true;
             result.Message = "success";
 
             return result;
         }
 
-      
+
+        string ExtractXmlFromSoapResponse(string soapResponse)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(soapResponse);
+            XmlNodeList nodes = doc.GetElementsByTagName("soap:Body");
+            if (nodes.Count > 0)
+            {
+                // 假设有效数据位于Body的第一个子元素内
+                return nodes[0].FirstChild.InnerXml;
+            }
+            return string.Empty;
+        }
+
+
+
 
         T DeserializeXmlToObject<T>(string xml)
         {
@@ -199,19 +230,6 @@ namespace Wesky.Net.OpenTools.HttpExtensions
                 doc.Root.ReplaceWith(newRoot);
             }
             return doc.ToString();
-        }
-
-        string ExtractXmlFromSoapResponse(string soapResponse)
-        {
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(soapResponse);
-            XmlNodeList nodes = doc.GetElementsByTagName("soap:Body");
-            if (nodes.Count > 0)
-            {
-                // 假设有效数据位于Body的第一个子元素内
-                return nodes[0].FirstChild.InnerXml;
-            }
-            return string.Empty;
         }
 
     }
