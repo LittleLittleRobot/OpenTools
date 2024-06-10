@@ -6,7 +6,7 @@
    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
    <Authors>Wesky</Authors>
    <Title>$(AssemblyName)</Title>
-   <Version>1.0.11</Version>
+   <Version>1.0.12</Version>
    <Company>Dotnet Dancer</Company>
    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>

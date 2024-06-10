@@ -24,14 +24,14 @@ namespace Wesky.Net.OpenTools.HttpExtensions
         public List<string> ParameterNames { get; set; }
 
         /// <summary>
-        /// 重设时间
+        /// 重设时间,如果该时间+过期秒数大于等于现在的时间，则需要重新加载ws服务的doc文档
         /// </summary>
         public DateTime ResetTime { get; set; } = DateTime.Now;
 
         /// <summary>
         /// 过期秒数，用于重新加载ws服务的doc文档
         /// </summary>
-        public long ExpireSeconds { get; set; }
+        public long ExpireSeconds { get; set; }=86400;
 
     }
     public class OpenWebserviceInfo
