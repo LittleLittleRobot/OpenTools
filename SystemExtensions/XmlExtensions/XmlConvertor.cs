@@ -64,16 +64,20 @@ namespace Wesky.Net.OpenTools.SystemExtensions.XmlExtensions
                     serializer.Serialize(xmlWriter, obj, namespaces);
                 }
 
-                // 使用XDocument处理XML，移除根节点并保留所有子元素
+                // 使用XDocument处理XML，根据根节点是否有子元素来决定返回内容
                 var xDoc = XDocument.Parse(textWriter.ToString());
                 XElement root = xDoc.Root;
                 var elements = root.Elements();
-                StringBuilder sb = new StringBuilder();
-                foreach (var elem in elements)
+          //      StringBuilder sb = new StringBuilder();
+                if (elements.Any())
                 {
-                    sb.AppendLine(elem.ToString()); // 将所有子元素添加到StringBuilder中
+                    // 如果有子元素，返回所有子元素的序列化字符串
+                    return string.Join(Environment.NewLine, elements.Select(e => e.ToString()));
                 }
-                return sb.ToString();
+                else
+                {
+                    return root.Value;
+                }
             }
         }
 

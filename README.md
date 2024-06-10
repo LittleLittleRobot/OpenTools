@@ -23,6 +23,7 @@ QQ: 16837949
 1.0.10	提供解析实体对象为Json字符串，支持多层级和集合  
 1.0.11	提供解析实体注释xml文档功能，支持多层级和集合  
 1.0.12	提供动态访问webservice服务接口的功能，支持.net framework和.net core或以上.net版本直接使用  
+1.0.13	优化动态访问webservice服务请求的返回值处理  
 
 This project is an individual open-source project under the MIT license, which will never change. The open-source project can be found at:    
 Gitee:https://gitee.com/dreamer_j/open-tools.git  
@@ -45,6 +46,7 @@ Update description:
 1.0.10 Provides parsing entity objects into Json strings, supporting multiple levels and collections.   
 1.0.11 Provides parsing entity annotation xml documents, supporting multiple levels and collections.  
 1.0.12 Provides the ability to dynamically access webservice service interfaces, supporting direct use of .net framework and .net core or higher .net versions.  
+1.0.13 Optimizes the return value processing of dynamic access to webservice service requests.
 
 
 

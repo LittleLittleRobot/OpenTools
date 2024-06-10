@@ -244,41 +244,21 @@ namespace Wesky.Net.OpenTools.HttpExtensions
                 return result;
             }
 
-            if ((parameters == null && wsInfo.ParameterNames.Count > 0) || (parameters.Length != wsInfo.ParameterNames.Count))
+            if ((parameters == null && wsInfo.ParameterNames.Count > 0) || (parameters!=null && parameters.Length != wsInfo.ParameterNames.Count))
             {
                 result.IsSuccess = false;
                 result.Message = $"远程服务接口参数个数和你传入的参数个数不匹配。远程服务参数个数:{wsInfo.ParameterNames.Count}, 本地传入参数个数： {parameters?.Length ?? 0}。Parameter count mismatch: remote service has {wsInfo.ParameterNames.Count}, provided {parameters?.Length ?? 0}.";
                 return result;
             }
 
-            //if (wsInfo.ParameterNames == null || wsInfo.ParameterNames.Count==0)
-            //{
-            //    if(parameters!=null && parameters.Length > 0)
-            //    {
-            //        result.IsSuccess = false;
-            //        result.Message = $"远程服务接口参数个数和你传入的参数个数不匹配,远程参数0个，你传入参数{parameters.Length}个";
-            //        return result;
-            //    }
-            //}
-
-            //if (parameters == null && wsInfo.ParameterNames.Count>0)
-            //{
-            //    result.IsSuccess = false;
-            //    result.Message = $"远程服务接口参数个数和你传入的参数个数不匹配；远程参数{wsInfo.ParameterNames.Count}个，你传入参数0个";
-            //    return result;
-            //}
-
-            //if (parameters.Length != wsInfo.ParameterNames.Count)
-            //{
-            //    result.IsSuccess = false;
-            //    result.Message = $"远程服务接口参数个数和你传入的参数个数不匹配；远程参数{wsInfo.ParameterNames.Count}个，你传入参数{parameters.Length}个";
-            //    return result;
-            //}
 
             Dictionary<string, string> dicParams = new Dictionary<string, string>();
-            for (int i = 0; i < wsInfo.ParameterNames.Count; i++)
+            if (parameters != null)
             {
-                dicParams.Add(wsInfo.ParameterNames[i], XmlConvertor.SerializeObjectToXml(parameters[i]));
+                for (int i = 0; i < wsInfo.ParameterNames.Count; i++)
+                {
+                    dicParams.Add(wsInfo.ParameterNames[i], XmlConvertor.SerializeObjectToXml(parameters[i]));
+                }
             }
             var response = InvokeService(url, apiName, dicParams,wsInfo.Namespace);
 
