@@ -6,11 +6,11 @@
    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
    <Authors>Wesky</Authors>
    <Title>$(AssemblyName)</Title>
-   <Version>1.0.13</Version>
+   <Version>1.0.14</Version>
    <Company>Dotnet Dancer</Company>
    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-   <RepositoryUrl>https://gitee.com/dreamer_j/open-tools.git</RepositoryUrl>
+   <RepositoryUrl>https://gitee.com/dreamer_j/open-tools.git  ||  https://github.com/LittleLittleRobot/OpenTools.git</RepositoryUrl>
    <SignAssembly>False</SignAssembly>
    <Copyright>Copyright © 2024 Wesky[Dotnet Dancer]</Copyright>
    <PackageProjectUrl>https://gitee.com/dreamer_j/open-tools.git</PackageProjectUrl>
@@ -28,8 +28,9 @@
       1.0.7	提供Iot方向，通用扫码器以太网通信读码功能
       1.0.8	提供通用Modbus-TCP通信功能，支持读写多种数据类型，支持多种数据格式
       1.0.10	提供解析实体对象为Json字符串，支持多层级和集合
-      1.0.11	提供解析实体注释xml文档功能，支持多层级和集合
-      1.0.12	提供动态访问webservice服务接口的功能，支持.net framework和.net core或以上.net版本直接使用
+      1.0.11	  提供解析实体注释xml文档功能，支持多层级和集合
+      1.0.13	提供动态访问webservice服务接口的功能，支持.net framework和.net core或以上.net版本直接使用  
+      1.0.14  提供结构体和二进制数据的互相转换功能  
 
       如需了解具体用法，可以关注公众号【Dotnet Dancer】里面的OpenTools系列文章进行学习和使用。
       An open-source toolkit designed to enhance development efficiency.
@@ -43,7 +44,8 @@
       1.0.8 Provides general Modbus-TCP communication functionality, supporting reading and writing multiple data types and multiple data formats.
       1.0.10 Provides parsing entity objects into Json strings, supporting multiple levels and collections.
       1.0.11 Provides parsing entity annotation xml documents, supporting multiple levels and collections.
-      1.0.12 Provides the ability to dynamically access web service interfaces, supporting direct use of .net framework and .net core or higher .net versions.
+      1.0.13 Provides the ability to dynamically access web service interfaces, supporting direct use of .net framework and .net core or higher .net versions.  
+      1.0.14 Provides the ability to convert between structures and binary data.
 
       For specific usage, you can follow the OpenTools series articles in the wechat official account [Dotnet Dancer] for learning and use.
     </Description>
