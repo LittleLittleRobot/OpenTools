@@ -38,6 +38,17 @@ namespace Wesky.Net.OpenTools.Iot.ModbusTcp
                     values.CopyTo(headBuffer, 7);
                     break;
 
+                case ModbusFunctionCode.WriteSingleRegister:
+                    byte[] valueBytes = (byte[])value;
+                    headBuffer = new byte[6];
+                    headBuffer[0] = modAddress.Station < 0 ? station : (byte)modAddress.Station;
+                    headBuffer[1] = code;
+                    headBuffer[2] = BitConverter.GetBytes(modAddress.Address)[1];
+                    headBuffer[3] = BitConverter.GetBytes(modAddress.Address)[0];
+                    headBuffer[4] = valueBytes[0];
+                    headBuffer[5] = valueBytes[1];
+                    break;
+
                 default:  // 其他默认
                     headBuffer = new byte[6];
                     headBuffer[0] = modAddress.Station < 0 ? station : (byte)modAddress.Station;
@@ -539,8 +550,13 @@ namespace Wesky.Net.OpenTools.Iot.ModbusTcp
                     }
                 }
 
-                byte[] receiveBytes = new byte[9];
+                byte[] receiveBytes = new byte[12]; // 9 调整为至少12个字节以包括MBAP头
                 int count = client.Client.Receive(receiveBytes);
+
+                if (count < 8) // 检查是否至少接收了8个字节
+                {
+                    throw new Exception("接收到的数据不完整，操作失败。");
+                }
 
                 if ((tcpBuffer[7] + 0x80) == receiveBytes[7])
                 {
@@ -596,8 +612,13 @@ namespace Wesky.Net.OpenTools.Iot.ModbusTcp
                     }
                 }
 
-                byte[] receiveBytes = new byte[9];
+                byte[] receiveBytes = new byte[12]; // 9 调整为至少12个字节以包括MBAP头
                 int count = client.Client.Receive(receiveBytes);
+
+                if (count < 8) // 检查是否至少接收了8个字节
+                {
+                    throw new Exception("接收到的数据不完整，操作失败。");
+                }
 
                 if ((tcpBuffer[7] + 0x80) == receiveBytes[7])
                 {
@@ -653,8 +674,13 @@ namespace Wesky.Net.OpenTools.Iot.ModbusTcp
                     }
                 }
 
-                byte[] receiveBytes = new byte[9];
+                byte[] receiveBytes = new byte[12]; // 9 调整为至少12个字节以包括MBAP头
                 int count = client.Client.Receive(receiveBytes);
+
+                if (count < 8) // 检查是否至少接收了8个字节
+                {
+                    throw new Exception("接收到的数据不完整，操作失败。");
+                }
 
                 if ((tcpBuffer[7] + 0x80) == receiveBytes[7])
                 {
@@ -710,8 +736,13 @@ namespace Wesky.Net.OpenTools.Iot.ModbusTcp
                     }
                 }
 
-                byte[] receiveBytes = new byte[9];
+                byte[] receiveBytes = new byte[12]; // 9 调整为至少12个字节以包括MBAP头
                 int count = client.Client.Receive(receiveBytes);
+
+                if (count < 8) // 检查是否至少接收了8个字节
+                {
+                    throw new Exception("接收到的数据不完整，操作失败。");
+                }
 
                 if ((tcpBuffer[7] + 0x80) == receiveBytes[7])
                 {
@@ -769,8 +800,13 @@ namespace Wesky.Net.OpenTools.Iot.ModbusTcp
                     }
                 }
 
-                byte[] receiveBytes = new byte[9];
+                byte[] receiveBytes = new byte[12]; // 9 调整为至少12个字节以包括MBAP头
                 int count = client.Client.Receive(receiveBytes);
+
+                if (count < 8) // 检查是否至少接收了8个字节
+                {
+                    throw new Exception("接收到的数据不完整，操作失败。");
+                }
 
                 if ((tcpBuffer[7] + 0x80) == receiveBytes[7])
                 {
@@ -1286,8 +1322,13 @@ namespace Wesky.Net.OpenTools.Iot.ModbusTcp
                     }
                 }
 
-                byte[] receiveBytes = new byte[9];
+                byte[] receiveBytes = new byte[12]; // 9 调整为至少12个字节以包括MBAP头
                 int count = client.Client.Receive(receiveBytes);
+
+                if (count < 8) // 检查是否至少接收了8个字节
+                {
+                    throw new Exception("接收到的数据不完整，操作失败。");
+                }
 
                 if ((tcpBuffer[7] + 0x80) == receiveBytes[7])
                 {
@@ -1343,8 +1384,13 @@ namespace Wesky.Net.OpenTools.Iot.ModbusTcp
                     }
                 }
 
-                byte[] receiveBytes = new byte[9];
+                byte[] receiveBytes = new byte[12]; // 9 调整为至少12个字节以包括MBAP头
                 int count = client.Client.Receive(receiveBytes);
+
+                if (count < 8) // 检查是否至少接收了8个字节
+                {
+                    throw new Exception("接收到的数据不完整，操作失败。");
+                }
 
                 if ((tcpBuffer[7] + 0x80) == receiveBytes[7])
                 {
@@ -1400,8 +1446,13 @@ namespace Wesky.Net.OpenTools.Iot.ModbusTcp
                     }
                 }
 
-                byte[] receiveBytes = new byte[9];
+                byte[] receiveBytes = new byte[12]; // 9 调整为至少12个字节以包括MBAP头
                 int count = client.Client.Receive(receiveBytes);
+
+                if (count < 8) // 检查是否至少接收了8个字节
+                {
+                    throw new Exception("接收到的数据不完整，操作失败。");
+                }
 
                 if ((tcpBuffer[7] + 0x80) == receiveBytes[7])
                 {
@@ -1457,8 +1508,13 @@ namespace Wesky.Net.OpenTools.Iot.ModbusTcp
                     }
                 }
 
-                byte[] receiveBytes = new byte[9];
+                byte[] receiveBytes = new byte[12]; // 9 调整为至少12个字节以包括MBAP头
                 int count = client.Client.Receive(receiveBytes);
+
+                if (count < 8) // 检查是否至少接收了8个字节
+                {
+                    throw new Exception("接收到的数据不完整，操作失败。");
+                }
 
                 if ((tcpBuffer[7] + 0x80) == receiveBytes[7])
                 {
@@ -1512,8 +1568,13 @@ namespace Wesky.Net.OpenTools.Iot.ModbusTcp
                     }
                 }
 
-                byte[] receiveBytes = new byte[9];
+                byte[] receiveBytes = new byte[12]; // 9 调整为至少12个字节以包括MBAP头
                 int count = client.Client.Receive(receiveBytes);
+
+                if (count < 8) // 检查是否至少接收了8个字节
+                {
+                    throw new Exception("接收到的数据不完整，操作失败。");
+                }
 
                 if ((tcpBuffer[7] + 0x80) == receiveBytes[7])
                 {
